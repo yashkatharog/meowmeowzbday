@@ -18,3 +18,23 @@ document.querySelector('#surpriseBtn').addEventListener('click',e=>{e.target.sty
 function burst(count){const colors=['#ff6fa5','#ffd166','#cab7ff','#fff8f2','#f04484'];for(let i=0;i<count;i++){const c=document.createElement('i');c.className='confetti';c.style.left=Math.random()*100+'vw';c.style.width=5+Math.random()*9+'px';c.style.height=7+Math.random()*12+'px';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.animationDuration=2.5+Math.random()*3+'s';c.style.animationDelay=Math.random()*.5+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),6500)}}
 
 const canvas=document.querySelector('#sparkleCanvas'),ctx=canvas.getContext('2d');let stars=[];function resize(){canvas.width=innerWidth;canvas.height=innerHeight;stars=Array.from({length:Math.min(100,innerWidth/10)},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.6+.2,a:Math.random(),v:Math.random()*.015+.004}))}function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{s.a+=s.v;if(s.a>1||s.a<.15)s.v*=-1;ctx.globalAlpha=s.a;ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,7);ctx.fill()});requestAnimationFrame(draw)}addEventListener('resize',resize);resize();draw();
+
+
+// Tap the paw button to create small original emoji-cat cameos.
+const catBtn=document.querySelector('#catBtn');
+function releaseCats(amount=9){
+  const cats=['🐈','🐈‍⬛','🐱','😸','😼','🙀','✨','💗','⭐'];
+  for(let i=0;i<amount;i++){
+    const cat=document.createElement('span');
+    cat.className='pop-cat';
+    cat.textContent=cats[Math.floor(Math.random()*cats.length)];
+    cat.style.left=(4+Math.random()*88)+'vw';
+    cat.style.bottom=(-10-Math.random()*18)+'vh';
+    cat.style.animationDelay=(Math.random()*.65)+'s';
+    cat.style.animationDuration=(2.1+Math.random()*1.6)+'s';
+    document.body.appendChild(cat);
+    setTimeout(()=>cat.remove(),4300);
+  }
+  if(navigator.vibrate) navigator.vibrate([45,35,45]);
+}
+catBtn.addEventListener('click',()=>releaseCats(12));
