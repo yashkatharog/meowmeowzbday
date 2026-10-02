@@ -25,6 +25,7 @@
   <div class="grain" aria-hidden="true"></div>
 
   <!-- Original CSS/emoji cat animations, no third-party meme assets -->
+  <div id="pawTrail" aria-hidden="true"></div>
   <div class="cat-world" aria-hidden="true">
     <div class="roaming-cat cat-a"><span class="cat-bubble">meow?</span><span class="cat-body">🐈</span></div>
     <div class="roaming-cat cat-b"><span class="cat-bubble">cake detected</span><span class="cat-body">🐈‍⬛</span></div>
@@ -53,6 +54,20 @@
       <div class="floating-note note-two">+1 year, 9 lives</div>
     </section>
 
+    <section class="section countdown-section" id="countdown">
+      <div class="countdown-wrap reveal">
+        <p class="eyebrow">countdown to 03 · 10 · 2026</p>
+        <h2 id="countdownTitle">The Birthday Era begins in...</h2>
+        <div class="countdown-grid" aria-live="polite">
+          <article><strong id="days">00</strong><span>days</span></article>
+          <article><strong id="hours">00</strong><span>hours</span></article>
+          <article><strong id="minutes">00</strong><span>minutes</span></article>
+          <article><strong id="seconds">00</strong><span>seconds</span></article>
+        </div>
+        <div class="countdown-cat" aria-hidden="true"><span>🐈</span><i>waiting very patiently for cake...</i></div>
+      </div>
+    </section>
+
     <section id="chaos" class="section intro reveal">
       <p class="eyebrow">official birthday report</p>
       <h2>Today’s forecast:<br><em>100% chance of cake.</em></h2>
@@ -61,6 +76,24 @@
         <article><strong>∞</strong><span>meows per minute</span></article>
         <article><strong>404</strong><span>common sense found</span></article>
         <article><strong>100%</strong><span>worth celebrating</span></article>
+      </div>
+    </section>
+
+    <section class="section drum-stage">
+      <div class="section-heading reveal">
+        <p class="eyebrow">the opening act</p>
+        <h2>The Birthday Cat Band</h2>
+        <p class="helper">Tap the drums and let an original little cat perform the birthday beat.</p>
+      </div>
+      <div class="band-card reveal">
+        <div class="stage-lights" aria-hidden="true"></div>
+        <div class="drum-cat" id="drumCat" aria-label="Animated cat drummer">
+          <div class="cat-head"><span class="ear left"></span><span class="ear right"></span><i class="eye e1"></i><i class="eye e2"></i><b>ᴗ</b></div>
+          <div class="paw paw-left"></div><div class="paw paw-right"></div>
+          <button class="drum drum-left" data-note="220" aria-label="Play left drum">MEOW</button>
+          <button class="drum drum-right" data-note="330" aria-label="Play right drum">ERA</button>
+        </div>
+        <p id="beatCaption">tap a drum • make a beat • summon confetti</p>
       </div>
     </section>
 
@@ -119,13 +152,13 @@
       <div class="section-heading reveal">
         <p class="eyebrow">memory lane</p>
         <h2>Evidence that we were there</h2>
-        <p class="helper">Replace these cards with photographs whenever you are ready.</p>
+        <p class="helper">Add your own photos to the assets folder and the gallery becomes your personal Meow Memories album.</p>
       </div>
       <div class="photo-wall">
-        <article class="memory-card reveal"><div class="photo-placeholder pastel-a">photo 01</div><p>the one where everything went slightly off-plan</p></article>
-        <article class="memory-card reveal"><div class="photo-placeholder pastel-b">photo 02</div><p>proof that good decisions are overrated</p></article>
-        <article class="memory-card reveal"><div class="photo-placeholder pastel-c">photo 03</div><p>a completely normal day, obviously</p></article>
-        <article class="memory-card reveal"><div class="photo-placeholder pastel-d">photo 04</div><p>core memory unlocked ✦</p></article>
+        <article class="memory-card reveal"><div class="photo-slot"><img src="assets/photo1.jpg" alt="Birthday memory one" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden>📸<small>assets/photo1.jpg</small></span></div><p>the one where everything went slightly off-plan</p></article>
+        <article class="memory-card reveal"><div class="photo-slot"><img src="assets/photo2.jpg" alt="Birthday memory two" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden>🐾<small>assets/photo2.jpg</small></span></div><p>proof that good decisions are overrated</p></article>
+        <article class="memory-card reveal"><div class="photo-slot"><img src="assets/photo3.jpg" alt="Birthday memory three" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden>✨<small>assets/photo3.jpg</small></span></div><p>a completely normal day, obviously</p></article>
+        <article class="memory-card reveal"><div class="photo-slot"><img src="assets/photo4.jpg" alt="Birthday memory four" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden>💗<small>assets/photo4.jpg</small></span></div><p>core memory unlocked ✦</p></article>
       </div>
     </section>
 
@@ -149,6 +182,22 @@
         <button data-correct="false">D. Also Meow Meow</button>
       </div>
       <p id="quizResult" class="quiz-result"></p>
+    </section>
+
+    <section class="section gift-section">
+      <div class="gift-wrap reveal">
+        <p class="eyebrow">one last delivery from the cat department</p>
+        <h2>A tiny gift is waiting...</h2>
+        <button id="giftBox" class="gift-box" aria-label="Open birthday gift">
+          <span class="gift-lid"><i></i></span><span class="gift-base"><i></i></span>
+          <b>tap to open</b>
+        </button>
+        <div id="giftReveal" class="gift-reveal hidden">
+          <div class="gift-cat">😸</div>
+          <h3>Surprise! You unlocked all nine lives.</h3>
+          <p>Redeemable for unlimited cake, dramatic entrances and one year of premium friendship support.</p>
+        </div>
+      </div>
     </section>
 
     <section class="section finale">
