@@ -8,29 +8,40 @@ const letter=`Baki sab thikee, Happiiestt bdayy meoww meoww, abhi just it was 11
 function typeLetter(){const target=document.querySelector('#typedLetter');let i=0;const io=new IntersectionObserver(es=>{if(es[0].isIntersecting&&!target.dataset.started){target.dataset.started='1';const timer=setInterval(()=>{target.textContent+=letter[i++]||'';if(i>=letter.length)clearInterval(timer)},19)}},{threshold:.3});io.observe(target)}
 
 // Original browser-generated ambient melody. No external or copyrighted audio file is used.
+// Background MP3 controls
+const musicBtn = document.getElementById("musicBtn");
+const musicLabel = document.getElementById("musicLabel");
 const bgMusic = document.getElementById("bgMusic");
 
-musicBtn.addEventListener("click", () => {
+if (musicBtn && musicLabel && bgMusic) {
+  bgMusic.volume = 0.6;
 
-    if (bgMusic.paused) {
-
-        bgMusic.play();
+  musicBtn.addEventListener("click", async () => {
+    try {
+      if (bgMusic.paused) {
+        await bgMusic.play();
 
         musicBtn.classList.add("playing");
-
         musicLabel.textContent = "pause the vibe";
-
-    } else {
-
+      } else {
         bgMusic.pause();
 
         musicBtn.classList.remove("playing");
-
         musicLabel.textContent = "play the vibe";
-
+      }
+    } catch (error) {
+      console.error("Music playback failed:", error);
+      musicLabel.textContent = "music failed";
     }
+  });
 
-});
+  bgMusic.addEventListener("error", () => {
+    console.error("MP3 could not load:", bgMusic.currentSrc);
+    musicLabel.textContent = "music missing";
+  });
+} else {
+  console.error("Music controls or audio element not found.");
+}
 document.querySelectorAll('#choices button').forEach(btn=>btn.addEventListener('click',()=>{const result=document.querySelector('#quizResult');if(btn.dataset.correct==='true'){result.textContent='Correct. The research is conclusive. ✦';burst(40)}else{result.textContent='Interesting theory. Unfortunately, the answer is Meow Meow.'}}));
 document.querySelector('#surpriseBtn').addEventListener('click',e=>{e.target.style.display='none';document.querySelector('#finalMessage').classList.remove('hidden');burst(160)});
 function burst(count){const colors=['#ff6fa5','#ffd166','#cab7ff','#fff8f2','#f04484'];for(let i=0;i<count;i++){const c=document.createElement('i');c.className='confetti';c.style.left=Math.random()*100+'vw';c.style.width=5+Math.random()*9+'px';c.style.height=7+Math.random()*12+'px';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.animationDuration=2.5+Math.random()*3+'s';c.style.animationDelay=Math.random()*.5+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),6500)}}
