@@ -1,45 +1,69 @@
 :root{--pink:#ff6fa5;--cream:#fff8f2;--navy:#17172f;--gold:#ffd166;--ink:#26213a}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--navy);color:#fff;font-family:"DM Sans",sans-serif;overflow-x:hidden}.hidden{display:none!important}#sparkleCanvas,#pawTrail{position:fixed;inset:0;pointer-events:none}#sparkleCanvas{z-index:0}#pawTrail{z-index:20}#loader{position:fixed;inset:0;background:var(--navy);z-index:100;display:grid;place-items:center;text-align:center;transition:.7s}#loader b{font-size:3rem;color:var(--gold)}#loader i{display:block;width:300px;max-width:70vw;height:8px;background:#ffffff22;border-radius:9px;overflow:hidden;margin:18px}#progressBar{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--gold))}.fixed{position:fixed;z-index:30;border:1px solid #ffffff55;background:#17172fe8;color:white;border-radius:999px;padding:12px 16px;cursor:pointer}.music{right:18px;top:18px}.cat{left:18px;bottom:18px}.music.playing span{display:inline-block;animation:spin 2s linear infinite}.cats{position:fixed;bottom:60px;z-index:24;pointer-events:none;width:100%}.cats span{position:absolute;font-size:3rem;animation:walk 18s linear infinite}.cats span+span{animation-delay:8s;animation-duration:24s}main{position:relative;z-index:1}.ticker{padding:12px;background:linear-gradient(90deg,var(--pink),var(--gold),#cab7ff);color:var(--ink);font-weight:bold;text-align:center;letter-spacing:.15em}.hero,section{min-height:100svh;padding:100px clamp(22px,7vw,110px);display:flex;flex-direction:column;justify-content:center;position:relative}.hero{background:radial-gradient(circle at 75% 25%,#7b477f,#36274f 30%,var(--navy) 65%)}small{color:var(--gold);font-weight:bold;letter-spacing:.2em}h1,h2{font-family:"Playfair Display",serif;line-height:.98;margin:.25em 0}h1{font-size:clamp(3.6rem,9vw,8rem)}h1 em,h2 em{display:block;color:var(--pink)}h2{font-size:clamp(2.7rem,6vw,5.5rem)}.copy p{max-width:650px;line-height:1.7}.copy a{display:inline-block;background:white;color:var(--ink);padding:15px 22px;border-radius:999px;text-decoration:none;font-weight:bold}.moon{position:absolute;right:7%;top:12%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#ffd7e6 48%,#ad83d4);opacity:.65}.light{background:linear-gradient(155deg,#fff8f2,#ffdce9);color:var(--ink);text-align:center}.dark{background:radial-gradient(circle at 50% 20%,#62385c,var(--navy) 65%)}.count,.stats,.cards,.era,.photos{display:grid;gap:16px;margin-top:45px}.count,.stats,.era,.photos{grid-template-columns:repeat(4,1fr)}.count article,.stats article{background:white;border-radius:20px;padding:25px;color:var(--ink)}.count b,.stats b{display:block;font-size:3rem;color:#f04484}.stats span{font-size:.75rem;text-transform:uppercase}.drumcat{max-width:650px;margin:30px auto;text-align:center;background:#2a203e;padding:35px;border-radius:30px}.face{font-size:8rem}.drum{width:150px;height:90px;border-radius:50%;border:6px solid #372448;background:var(--pink);color:white;font-weight:bold;font-size:1.2rem;margin:10px;cursor:pointer}.cards{grid-template-columns:repeat(2,1fr)}.cards.three{grid-template-columns:repeat(3,1fr)}.cards article,.era article{background:#ffffff12;border:1px solid #ffffff33;border-radius:24px;padding:32px;font-size:1.2rem}.cards.three article{font-size:4rem}.cards.three h3,.cards.three p{font-size:1rem}.eras{background:linear-gradient(160deg,#2f2449,#744467)}.era article{font-size:5rem;text-align:center}.era h3{font-size:1.4rem}.memories{background:#53304f}.photos article{background:white;color:var(--ink);padding:12px;transform:rotate(-2deg)}.photos article:nth-child(even){transform:rotate(2deg)}.photos img{width:100%;height:280px;object-fit:cover;background:#e5c0db}.photos p{font-family:Caveat;font-size:1.4rem;text-align:center}.letter{background:var(--cream);color:var(--ink);text-align:left}.letter>div{background:white;padding:55px;box-shadow:0 25px 60px #0002;font:2rem/1.5 Caveat;min-height:260px}.letter>p{text-align:right;font:1.5rem Caveat}.quiz{text-align:center}#choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:700px;margin:30px auto}#choices button,#surpriseBtn{padding:17px;border-radius:15px;border:1px solid #ffffff44;background:#ffffff12;color:white;cursor:pointer}.gift{text-align:center}#giftBox{font-size:8rem;border:0;background:none;cursor:pointer}#giftBox span{display:block;font-size:1rem}.giftReveal b,#giftReveal>b{font-size:5rem}.final{text-align:center}#surpriseBtn{background:#f04484;border:0;border-radius:999px}.reveal{opacity:1}.pop-cat,.confetti,.paw-print{position:fixed;z-index:70;pointer-events:none}.pop-cat{font-size:3rem;animation:rise 3s forwards}.confetti{top:-20px;animation:fall 4s linear forwards}.paw-print{animation:fade 2s forwards}@keyframes spin{to{transform:rotate(360deg)}}@keyframes walk{from{left:-10%}to{left:110%}}@keyframes rise{to{transform:translateY(-120vh) rotate(360deg);opacity:0}}@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}@keyframes fade{to{opacity:0;transform:scale(1.5) translateY(-30px)}}
 @media(max-width:850px){.music{top:auto;bottom:18px}.hero{text-align:center}.moon{width:200px;height:200px;right:-50px}.count,.stats{grid-template-columns:1fr 1fr}.cards,.cards.three{grid-template-columns:1fr}.era,.photos{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-22px;padding:0 22px}.era article,.photos article{min-width:82vw;scroll-snap-align:center}.photos img{height:380px}#choices{grid-template-columns:1fr}.hero,section{padding:85px 22px}.ticker{font-size:.65rem}.cat{font-size:.75rem}.music b{display:none}}
 
-/* Mobile-only layout improvements. Desktop content and behavior remain unchanged. */
-@media (max-width: 850px) {
-  html {
-    scroll-snap-type: y proximity;
-    scroll-padding-top: 0;
+/* =========================================================
+   MOBILE VIEW ONLY
+   This block changes layout only. It does not change content.
+   ========================================================= */
+@media screen and (max-width: 850px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   body {
-    min-width: 0;
-    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  main,
+  section,
+  .hero {
+    width: 100%;
+    max-width: 100%;
   }
 
   .hero,
   section {
-    width: 100%;
     min-height: 100svh;
-    padding: 82px 20px 88px;
+    padding: 82px 20px 92px;
     overflow: hidden;
-    scroll-snap-align: start;
   }
 
   .ticker {
-    position: relative;
     width: 100%;
     padding: 10px 14px;
-    font-size: .62rem;
+    font-size: 0.62rem;
     line-height: 1.5;
-    letter-spacing: .1em;
+    letter-spacing: 0.09em;
     white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   h1 {
     font-size: clamp(3rem, 14vw, 5rem);
+    line-height: 0.98;
     overflow-wrap: anywhere;
   }
 
   h2 {
     font-size: clamp(2.35rem, 11vw, 4rem);
+    line-height: 1;
     overflow-wrap: anywhere;
+  }
+
+  p,
+  h3,
+  small,
+  span,
+  b {
+    overflow-wrap: anywhere;
+  }
+
+  .hero {
+    text-align: center;
+    align-items: center;
   }
 
   .copy {
@@ -49,24 +73,27 @@
   }
 
   .copy p {
-    max-width: 32rem;
+    width: 100%;
+    max-width: 34rem;
     margin: 18px auto;
     font-size: 1rem;
+    line-height: 1.65;
   }
 
   .copy a {
-    min-height: 50px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    min-height: 50px;
+    max-width: 100%;
   }
 
   .moon {
     width: 190px;
     height: 190px;
-    right: -55px;
-    top: 9%;
-    opacity: .45;
+    top: 8%;
+    right: -58px;
+    opacity: 0.42;
   }
 
   .fixed {
@@ -78,32 +105,33 @@
   .cat {
     left: 12px;
     bottom: 12px;
+    font-size: 0.78rem;
   }
 
   .music {
+    top: auto;
     right: 12px;
     bottom: 12px;
-    top: auto;
   }
 
   .music b {
     display: inline;
-    font-size: .78rem;
+    font-size: 0.78rem;
   }
 
   .cats {
-    bottom: 62px;
+    bottom: 64px;
   }
 
   .cats span {
-    font-size: 2.4rem;
+    font-size: 2.35rem;
   }
 
   .count,
   .stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
     width: 100%;
+    gap: 10px;
     margin-top: 34px;
   }
 
@@ -120,13 +148,15 @@
 
   .stats span {
     display: block;
-    overflow-wrap: anywhere;
+    font-size: 0.68rem;
+    line-height: 1.35;
   }
 
   .drumcat {
     width: 100%;
+    max-width: 100%;
     margin: 28px auto 0;
-    padding: 28px 12px;
+    padding: 28px 10px;
   }
 
   .face {
@@ -151,16 +181,23 @@
     padding: 26px 22px;
   }
 
+  .cards.three article {
+    font-size: 3.5rem;
+  }
+
   .era,
   .photos {
     display: flex;
     width: auto;
+    max-width: none;
     overflow-x: auto;
+    overflow-y: hidden;
     overscroll-behavior-inline: contain;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
     gap: 15px;
-    margin: 35px -20px 0;
-    padding: 6px 20px 26px;
+    margin: 34px -20px 0;
+    padding: 6px 20px 28px;
     scrollbar-width: none;
   }
 
@@ -171,22 +208,26 @@
 
   .era article,
   .photos article {
+    flex: 0 0 84vw;
+    width: 84vw;
     min-width: 84vw;
     max-width: 84vw;
-    scroll-snap-align: center;
-    flex: 0 0 auto;
+    margin: 0;
     transform: none;
+    scroll-snap-align: center;
   }
 
   .photos img {
+    display: block;
     width: 100%;
     height: min(105vw, 430px);
     object-fit: cover;
   }
 
   .letter > div {
-    padding: 34px 24px;
+    width: 100%;
     min-height: 310px;
+    padding: 34px 24px;
     font-size: clamp(1.55rem, 7vw, 2rem);
   }
 
@@ -198,21 +239,30 @@
 
   #choices button,
   #surpriseBtn {
-    min-height: 54px;
     width: 100%;
+    min-height: 54px;
   }
 
   #giftBox {
-    font-size: 7rem;
     min-width: 180px;
     min-height: 190px;
+    font-size: 7rem;
+  }
+
+  #finalMessage {
+    width: 100%;
   }
 }
 
-@media (max-width: 420px) {
+@media screen and (max-width: 420px) {
   .hero,
   section {
-    padding-inline: 16px;
+    padding: 76px 16px 88px;
+  }
+
+  .ticker {
+    padding-inline: 10px;
+    font-size: 0.58rem;
   }
 
   .count,
@@ -237,6 +287,8 @@
 
   .era article,
   .photos article {
+    flex-basis: 88vw;
+    width: 88vw;
     min-width: 88vw;
     max-width: 88vw;
   }
