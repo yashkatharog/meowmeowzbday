@@ -8,11 +8,29 @@ const letter=`Baki sab thikee, Happiiestt bdayy meoww meoww, abhi just it was 11
 function typeLetter(){const target=document.querySelector('#typedLetter');let i=0;const io=new IntersectionObserver(es=>{if(es[0].isIntersecting&&!target.dataset.started){target.dataset.started='1';const timer=setInterval(()=>{target.textContent+=letter[i++]||'';if(i>=letter.length)clearInterval(timer)},19)}},{threshold:.3});io.observe(target)}
 
 // Original browser-generated ambient melody. No external or copyrighted audio file is used.
-let audioCtx,master,playing=false,timer;const musicBtn=document.querySelector('#musicBtn'),musicLabel=document.querySelector('#musicLabel');
-function note(freq,start,duration){const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();osc.type='sine';osc.frequency.value=freq;gain.gain.setValueAtTime(0,start);gain.gain.linearRampToValueAtTime(.055,start+.05);gain.gain.exponentialRampToValueAtTime(.001,start+duration);osc.connect(gain).connect(master);osc.start(start);osc.stop(start+duration)}
-function melody(){if(!playing)return;const now=audioCtx.currentTime+.05,notes=[261.63,329.63,392,493.88,440,392,329.63,293.66];notes.forEach((n,i)=>note(n,now+i*.38,.65));timer=setTimeout(melody,notes.length*380)}
-musicBtn.addEventListener('click',()=>{if(!audioCtx){audioCtx=new(window.AudioContext||window.webkitAudioContext)();master=audioCtx.createGain();master.gain.value=.9;master.connect(audioCtx.destination)}playing=!playing;musicBtn.classList.toggle('playing',playing);musicLabel.textContent=playing?'pause the vibe':'play the vibe';if(playing){audioCtx.resume();melody()}else{clearTimeout(timer);audioCtx.suspend()}});
+const bgMusic = document.getElementById("bgMusic");
 
+musicBtn.addEventListener("click", () => {
+
+    if (bgMusic.paused) {
+
+        bgMusic.play();
+
+        musicBtn.classList.add("playing");
+
+        musicLabel.textContent = "pause the vibe";
+
+    } else {
+
+        bgMusic.pause();
+
+        musicBtn.classList.remove("playing");
+
+        musicLabel.textContent = "play the vibe";
+
+    }
+
+});
 document.querySelectorAll('#choices button').forEach(btn=>btn.addEventListener('click',()=>{const result=document.querySelector('#quizResult');if(btn.dataset.correct==='true'){result.textContent='Correct. The research is conclusive. ✦';burst(40)}else{result.textContent='Interesting theory. Unfortunately, the answer is Meow Meow.'}}));
 document.querySelector('#surpriseBtn').addEventListener('click',e=>{e.target.style.display='none';document.querySelector('#finalMessage').classList.remove('hidden');burst(160)});
 function burst(count){const colors=['#ff6fa5','#ffd166','#cab7ff','#fff8f2','#f04484'];for(let i=0;i<count;i++){const c=document.createElement('i');c.className='confetti';c.style.left=Math.random()*100+'vw';c.style.width=5+Math.random()*9+'px';c.style.height=7+Math.random()*12+'px';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.animationDuration=2.5+Math.random()*3+'s';c.style.animationDelay=Math.random()*.5+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),6500)}}
