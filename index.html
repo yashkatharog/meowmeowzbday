@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#ff6fa5" />
+  <meta name="description" content="A tiny birthday universe for Meow MeowwMeoww Meoowww." />
+  <title>Meow Meow's Birthday ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="loader" class="loader" aria-live="polite">
+    <div class="loader-card">
+      <span class="tiny-star">✦</span>
+      <p id="loadText">Locating the birthday girlie...</p>
+      <div class="progress"><span id="progressBar"></span></div>
+      <strong id="progressNumber">0%</strong>
+    </div>
+  </div>
+
+  <canvas id="sparkleCanvas" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <button id="musicBtn" class="music-btn" aria-label="Play original ambient birthday music">
+    <span class="disc">♪</span><span id="musicLabel">play the vibe</span>
+  </button>
+
+  <main id="mainContent" class="hidden">
+    <section class="hero section">
+      <div class="moon"></div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">03 · 10 · 2026</p>
+        <h1>Happy Birthday,<br><em>Meow MeowwMeoww<br>Meoowww</em></h1>
+        <p class="sub">A small corner of the internet made especially for one very iconic human.</p>
+        <a class="primary-btn" href="#chaos">enter the chaos ↓</a>
+      </div>
+      <div class="hero-card polaroid reveal tilt-one">
+        <div class="photo-placeholder"><span>your favourite photo<br>goes here 📸</span></div>
+        <p>main character since forever ✨</p>
+      </div>
+      <div class="floating-note note-one">certified icon</div>
+      <div class="floating-note note-two">+1 year of chaos</div>
+    </section>
+
+    <section id="chaos" class="section intro reveal">
+      <p class="eyebrow">official birthday report</p>
+      <h2>Today’s forecast:<br><em>100% chance of cake.</em></h2>
+      <div class="stats">
+        <article><strong>10/10</strong><span>friendship rating</span></article>
+        <article><strong>∞</strong><span>meows per minute</span></article>
+        <article><strong>404</strong><span>common sense found</span></article>
+        <article><strong>100%</strong><span>worth celebrating</span></article>
+      </div>
+    </section>
+
+    <section class="section roast-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">a gentle roast, with love</p>
+        <h2>The annual performance review</h2>
+      </div>
+      <div class="roast-grid">
+        <article class="roast-card reveal">
+          <span>01</span><h3>Professional Yapper</h3>
+          <p>Can turn a two-minute story into a limited series. Somehow, still worth every episode.</p>
+        </article>
+        <article class="roast-card reveal">
+          <span>02</span><h3>Reply Speed</h3>
+          <p>Either 0.2 seconds or three business days. There is absolutely no middle ground.</p>
+        </article>
+        <article class="roast-card reveal">
+          <span>03</span><h3>Decision Making</h3>
+          <p>Needs 47 options, 6 opinions and one snack. Chooses the first option anyway.</p>
+        </article>
+        <article class="roast-card reveal">
+          <span>04</span><h3>Rare Achievement</h3>
+          <p>Survived another year while remaining dramatically, unapologetically meow.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section memories">
+      <div class="section-heading reveal">
+        <p class="eyebrow">memory lane</p>
+        <h2>Evidence that we were there</h2>
+        <p class="helper">Replace these cards with photographs whenever you are ready.</p>
+      </div>
+      <div class="photo-wall">
+        <article class="memory-card reveal"><div class="photo-placeholder pastel-a">photo 01</div><p>the one where everything went slightly off-plan</p></article>
+        <article class="memory-card reveal"><div class="photo-placeholder pastel-b">photo 02</div><p>proof that good decisions are overrated</p></article>
+        <article class="memory-card reveal"><div class="photo-placeholder pastel-c">photo 03</div><p>a completely normal day, obviously</p></article>
+        <article class="memory-card reveal"><div class="photo-placeholder pastel-d">photo 04</div><p>core memory unlocked ✦</p></article>
+      </div>
+    </section>
+
+    <section class="section letter-section">
+      <div class="letter reveal">
+        <p class="eyebrow">jokes apart...</p>
+        <h2>Dear Meow,</h2>
+        <div id="typedLetter" class="letter-body"></div>
+        <p class="signature">with an unreasonable amount of affection,<br><strong>your favourite menace ♡</strong></p>
+      </div>
+    </section>
+
+    <section class="section quiz-section reveal">
+      <p class="eyebrow">important research</p>
+      <h2>One final question...</h2>
+      <p>Who is the undisputed main character today?</p>
+      <div class="choices" id="choices">
+        <button data-correct="false">A. Yash</button>
+        <button data-correct="true">B. Meow Meow</button>
+        <button data-correct="false">C. The cake</button>
+        <button data-correct="false">D. Also Meow Meow</button>
+      </div>
+      <p id="quizResult" class="quiz-result"></p>
+    </section>
+
+    <section class="section finale">
+      <div class="final-card reveal">
+        <p class="eyebrow">classified birthday material</p>
+        <h2>Whatever you do...</h2>
+        <button id="surpriseBtn" class="danger-btn">DO NOT CLICK</button>
+        <div id="finalMessage" class="final-message hidden">
+          <span>✦</span>
+          <h2>Happy Birthday, Meow!</h2>
+          <p>May this year bring ridiculous laughter, brave adventures, peaceful days and every beautiful thing you deserve.</p>
+          <strong>Stay wonderfully weird. 💗</strong>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
