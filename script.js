@@ -4,7 +4,7 @@ const loading=setInterval(()=>{p+=Math.ceil(Math.random()*7);if(p>100)p=100;bar.
 
 function observe(){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.14});document.querySelectorAll('.reveal').forEach(el=>ob.observe(el))}
 
-const letter=`Jokes aside, you make ordinary days more memorable and every ridiculous moment ten times funnier. Thank you for listening to the nonsense, joining the chaos and being exactly the kind of person the world needs more of.\n\nI hope this new year of your life feels soft when it needs to, exciting when you want it to, and full of people and moments that remind you how loved you are. Happy birthday, Meow. Never stop being wonderfully, loudly, unapologetically you.`;
+const letter=`Baki sab thikee, Happiiestt bdayy meoww meoww, abhi just it was 11.11 some mins ago, thank you for always being there, likhneko bahot kuch hainn, i will call wo baat alag hainn😅, bhetuya...[`;
 function typeLetter(){const target=document.querySelector('#typedLetter');let i=0;const io=new IntersectionObserver(es=>{if(es[0].isIntersecting&&!target.dataset.started){target.dataset.started='1';const timer=setInterval(()=>{target.textContent+=letter[i++]||'';if(i>=letter.length)clearInterval(timer)},19)}},{threshold:.3});io.observe(target)}
 
 // Original browser-generated ambient melody. No external or copyrighted audio file is used.
